@@ -1,0 +1,1069 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI+Variable:wght@400;600&display=swap');
+
+/* Reset Styles & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI Variable', sans-serif;
+  direction: rtl;
+  background: #fff;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ------------ HEADER ------------ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  border-bottom: 1px solid #e1e1e1;
+  z-index: 100;
+}
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.icon-btn img {
+  width: 30px;
+  height: 24px;
+}
+
+/* LOGO CENTERED */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-small {
+  height: 32px;
+}
+.logo-large {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0078D4;
+}
+
+/* Search & Hamburger */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #131212;
+  border-radius: 4px;
+  padding: 4px;
+}
+.search-wrapper input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 120px;
+}
+.search-btn img {
+  width: 20px;
+}
+.hamburger img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ------------ SIDEBAR ------------ */
+.nav {
+  position: fixed;
+  top: 56px;
+  right: -260px;
+  bottom: 0;
+  width: 260px;
+  background: #fff;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: right 0.2s ease;
+  z-index: 150;
+}
+.nav.open {
+  right: 0;
+}
+.nav ul {
+  list-style: none;
+  padding: 20px;
+}
+.nav li {
+  margin-bottom: 8px;
+}
+.nav a {
+  display: block;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #323130;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav a:hover,
+.nav a:focus {
+  background: #f3f2f1;
+  color: #0078D4;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+  z-index: 140;
+}
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ------------ HERO SECTION ------------ */
+.hero {
+  text-align: center;
+  padding: 60px 16px;
+}
+
+
+.hero-img {
+  width: 30%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+
+.hero-title {
+  font-size: 2rem;
+  color: #0078D4;
+  margin-bottom: 8px;
+}
+.hero p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 16px;
+}
+.cta {
+  background: #0078D4;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+}
+.cta:hover {
+  background: #106EBE;
+}
+
+/* ------------ SLIDER ------------ */
+.slider {
+  padding: 20px 0;
+  background: #fffefe;
+}
+.swiper-container {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #f3f3f3;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #0078D4;
+}
+.swiper-pagination-bullet {
+  background: #ccc;
+}
+.swiper-pagination-bullet-active {
+  background: #0078D4;
+}
+
+/* ------------ CARDS ------------ */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  width: calc(50% - 24px);
+  max-width: 320px;
+  text-align: center;
+  padding: 16px;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+.card:hover {
+  transform: perspective(500px) rotateY(5deg) translateY(-4px);
+}
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.trial-btn {
+  background: #0078D4;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+.trial-btn:hover {
+  background: #106EBE;
+}
+.icon-btn.add-to-cart img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ------------ CART & SHARE POPUPS ------------ */
+.cart-btn {
+  position: relative;
+}
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #e81123;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  display: none;
+}
+.cart-popup {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  width: 260px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 200;
+}
+.cart-popup h3 {
+  font-size: 18px;
+  color: #0078D4;
+  margin-top: 0;
+}
+.cart-popup ul {
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+.cart-popup li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+.share-popup {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0078D4;
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  text-align: center;
+  z-index: 220;
+}
+.share-popup p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.share-popup button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #0078D4;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.share-popup button#closeSharePopup {
+  background: transparent;
+  color: #fff;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === تحسين تجربة المستخدم على الموبايل === */
+@media (max-width: 500px) {
+  /* تصغير أيقونات السلة، المشاركة، والقائمة */
+  .icon-btn img,
+  .hamburger img,
+  .search-btn img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* تعديل فجوات وتقليل padding */
+  .header-left,
+  .header-right {
+    gap: 6px;
+  }
+  .icon-btn {
+    padding: 4px;
+  }
+
+  /* تقليل حجم اللوجو */
+  .logo-small {
+    height: 20px !important;
+  }
+  .logo-large {
+    font-size: 1.6rem !important;
+    font-weight: bold;
+  }
+
+  /* إخفاء مربع البحث على الموبايل */
+  .search-wrapper {
+    display: none;
+  }
+
+  /* ترتيب البطاقات: بطاقة واحدة في سطر + ملأ الشاشة */
+  .cards {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+  .card {
+    width: 100% !important;
+    max-width: none;
+  }
+
+  /* ضبط الصور لتظهر كاملة داخل البطاقات */
+  .card img,
+  .hero-img {
+    object-fit: contain !important;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* === خطوط تقسيم تحت الهيدر === */
+.header {
+  border-bottom: 1px solid #ddd;
+}
+
+/* === وضع Dark Mode / الوضع الليلي === */
+body.dark-mode {
+  background: #121212;
+  color: #eee;
+}
+body.dark-mode .header {
+  background: #1f1f1f;
+  border-color: #333;
+}
+body.dark-mode .card {
+  background: #1e1e1e;
+  border-color: #333;
+  box-shadow: none;
+}
+body.dark-mode .cta,
+body.dark-mode .trial-btn {
+  background: #005a9e;
+}
+body.dark-mode .cta:hover,
+body.dark-mode .trial-btn:hover {
+  background: #0078d4;
+}
+
+/* === زر الوضع الليلي بجانب أيقونة المشاركة === */
+.btn-dark-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.btn-dark-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: #0078D4;
+}
+body.dark-mode .btn-dark-toggle svg {
+  fill: #eee;
+}
+
+
+
+
+
+
+
+
+
+
+/* 🌙 الوضع الليلي */
+body.dark-mode {
+  background-color: #181818;
+  color: #eee;
+}
+body.dark-mode .header,
+body.dark-mode .nav,
+body.dark-mode .card,
+body.dark-mode .search-wrapper,
+body.dark-mode .cart-popup {
+  background-color: #242424;
+  border-color: #333;
+}
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode .nav a,
+body.dark-mode .nav-btn,
+body.dark-mode .search-wrapper input {
+  color: #eee !important;
+}
+body.dark-mode .trial-btn {
+  background: #005A9E;
+}
+body.dark-mode .trial-btn:hover {
+  background: #004377;
+}
+
+/* 🌟 زر التبديل بين الوضعين */
+.dark-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 15px;
+  background: linear-gradient(135deg, #0078D4, #005a9e);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  color: rgb(241, 239, 239);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.dark-toggle-btn:hover {
+  transform: scale(1.05) rotateX(4deg);
+  background: linear-gradient(135deg, #005a9e, #003f76);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dark Mode: اضاءة الحدود للبطاقات التسعة */
+.dark-mode .cards .card {
+  border: 2px solid #c23c3c;
+  background-color: #222;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* عند التمرير على البطاقة في وضع الليل */
+.dark-mode .cards .card:hover {
+  border-color: #00aaff;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.7),
+              0 0 25px rgba(0, 170, 255, 0.5);
+  cursor: pointer;
+}
+
+/* تأثير ضوء تدريجي متغير تلقائيًا */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.4),
+                0 0 20px rgba(255, 85, 85, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(85, 255, 85, 0.6),
+                0 0 30px rgba(38, 209, 60, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(40, 18, 165, 0.678)
+                0 0 20px rgba(255, 85, 85, 0.4);
+  }
+}
+
+.dark-mode .cards .card {
+  animation: glow 4s infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* إضافات dark-mode للعنصر المؤدي للسلايدر (مثلاً .slider-container) */
+@media (prefers-color-scheme: dark) {
+  .slider-container {
+    background-color: #1a1a1a; /* خلفية داكنة مناسبة */
+  }
+  .slider-container .slider-nav,
+  .slider-container .slider-nav::before,
+  .slider-container .slider-nav::after {
+    background-color: rgba(255,255,255,0.8) !important; /* تحويل ألوان الأسهم/التحكم للأبيض */
+  }
+  .slider-container .slider-nav:hover {
+    background-color: rgba(255,255,255,1) !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ✅ الخلفية اللي حوالين الصورة */
+body.dark-mode section,
+body.dark-mode .image-wrapper {
+  background-color: #121212 !important;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🔁 غيّر لون خلفية السلايدر الجانبية في الوضع الليلي */
+body.dark-mode .swiper-container {
+  background-color: #111; /* أو أي لون داكن */
+  border-radius: 16px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.dark-mode #hamburger {
+  border: 2px solid transparent;
+  animation: borderGlow 3s infinite;
+  border-radius: 8px;
+}
+
+@keyframes borderGlow {
+  0% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+  25% { border-color: #4ecbff; box-shadow: 0 0 10px #4ecbff; }
+  50% { border-color: #4eff83; box-shadow: 0 0 10px #4eff83; }
+  75% { border-color: #ffef4e; box-shadow: 0 0 10px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+}
+
+
+
+
+
+body.dark-mode .icon-btn.user-share,
+body.dark-mode .icon-btn.cart-btn {
+  border: 2px solid transparent;
+  animation: borderGlow 3s infinite;
+  border-radius: 10px;
+  padding: 6px;
+  transition: all 0.4s ease;
+}
+
+/* تأثير متوهج متغير للأزرار */
+@keyframes borderGlow {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 8px #ff4ecb; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 8px #4ecbff; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 8px #4eff83; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 8px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 8px #ff4ecb; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🔥 توهج للعناصر داخل القائمة */
+body.dark-mode nav#nav ul li a {
+  display: inline-block;
+  padding: 10px 12px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  animation: borderGlow 3s infinite;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* 🔥 توهج لزر الوضع الليلي */
+body.dark-mode #darkModeToggle {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  animation: borderGlow 3s infinite;
+  background: transparent;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* ✅ إعادة استخدام أنيميشن التوهج */
+@keyframes borderGlow {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 10px #4ecbff; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 10px #4eff83; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 10px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🌌 زر البحث */
+body.dark-mode .search-btn {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  animation: borderGlow 3s infinite;
+  padding: 6px;
+  background: transparent;
+}
+
+/* 🌌 مربع البحث نفسه */
+body.dark-mode .search-wrapper input {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 8px;
+  animation: borderGlow 3s infinite;
+  background-color: #111;
+  color: white;
+  outline: none;
+}
+
+/* 🌌 زر القائمة الجانبية (الهامبرغر) - تحسين */
+body.dark-mode .hamburger {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  animation: borderGlow 3s infinite;
+  padding: 6px;
+  background: transparent;
+}
+
+/* ✅ أنيميشن التوهج الموحد */
+@keyframes borderGlow {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 10px #4ecbff; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 10px #4eff83; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 10px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🔥 تأثير توهج على زر جرب الآن كرابط */
+body.dark-mode a.trial-btn {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 10px 20px;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  animation: borderGlow 3s infinite;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* ✨ عند مرور الماوس */
+body.dark-mode a.trial-btn:hover {
+  filter: brightness(1.4);
+  box-shadow: 0 0 15px #00f2ff, 0 0 25px #00ffa2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🌟 التوهج الأساسي للصورة */
+body.dark-mode .hero-img {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 6px;
+  animation: borderGlow 3s infinite;
+  transition: all 0.3s ease;
+}
+
+/* ✨ زيادة التوهج عند مرور الماوس */
+body.dark-mode .hero-img:hover {
+  filter: brightness(1.3);
+  box-shadow: 0 0 15px #00f2ff, 0 0 25px #00ffa2;
+}
+@keyframes borderGlow {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 10px #4ecbff; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 10px #4eff83; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 10px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🌌 التوهج لصور السلايدر داخل الوضع الليلي */
+body.dark-mode .swiper-slide img {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 6px;
+  animation: borderGlow 3s infinite;
+  transition: all 0.3s ease;
+}
+
+/* ✨ توهج أقوى عند مرور الماوس */
+body.dark-mode .swiper-slide img:hover {
+  filter: brightness(1.3);
+  box-shadow: 0 0 15px #00f2ff, 0 0 25px #00ffa2;
+}
+@keyframes borderGlow {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 10px #4ecbff; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 10px #4eff83; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 10px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+}
+
+
+
+
+
+
+
+
+
+
+
+header {
+  border: 2px solid transparent;
+  animation: headerGlow 4s infinite;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 0 10px #0ff;
+  transition: all 0.5s ease;
+}
+
+@keyframes headerGlow {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 10px #4ecbff; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 10px #4eff83; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 10px #ffef4e; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 10px #ff4ecb; }
+}
+
+
+
+
+
+
+
+
+
+body {
+  position: relative;
+  border: 2px solid transparent;
+  animation: borderNeonThin 6s infinite;
+  border-radius: 10px;
+  box-shadow:
+    0 0 4px #0ff,
+    0 0 6px #0ff inset;
+  padding: 5px;
+  margin: 10px;
+}
+
+/* توهج رفيع وناعم */
+@keyframes borderNeonThin {
+  0%   { border-color: #ff4ecb; box-shadow: 0 0 4px #ff4ecb, 0 0 6px #ff4ecb inset; }
+  25%  { border-color: #4ecbff; box-shadow: 0 0 4px #4ecbff, 0 0 6px #4ecbff inset; }
+  50%  { border-color: #4eff83; box-shadow: 0 0 4px #4eff83, 0 0 6px #4eff83 inset; }
+  75%  { border-color: #ffef4e; box-shadow: 0 0 4px #ffef4e, 0 0 6px #ffef4e inset; }
+  100% { border-color: #ff4ecb; box-shadow: 0 0 4px #ff4ecb, 0 0 6px #ff4ecb inset; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card img {
+  border-radius: 12px;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.card img:hover {
+  box-shadow: 0 0 15px 5px rgba(79, 195, 247, 0.6); /* اللون الأزرق الفاتح */
+}
+
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px #4fc3f7;
+  }
+  50% {
+    box-shadow: 0 0 15px #4fc3f7;
+  }
+  100% {
+    box-shadow: 0 0 5px #4fc3f7;
+  }
+}
+
+.card img {
+  border-radius: 12px;
+  animation: glowPulse 2s infinite;
+}

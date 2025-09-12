@@ -1,0 +1,27 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family:Segoe UI,sans-serif; }
+body { direction:rtl; background:#f5f5f5; }
+.header {
+  position:sticky; top:0; background:#0078D4;
+  padding:12px; color:#fff;
+  display:flex; justify-content:space-between;
+  align-items:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo { font-size:1.5rem; }
+.add-product-form {
+  max-width:400px; margin:40px auto;
+  background:#fff; padding:20px;
+  border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.add-product-form h2 {
+  margin-bottom:20px; color:#0078D4;
+}
+.add-product-form input {
+  width:100%; padding:10px; margin-bottom:12px;
+  border:1px solid #ccc; border-radius:4px;
+}
+.add-product-form button {
+  width:100%; padding:12px;
+  background:#0078D4; color:#fff;
+  border:none; cursor:pointer;
+  border-radius:4px; font-size:1rem;
+}

@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 50px 35px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  max-width: 440px;
+  width: 90%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.buttons .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 14px 0;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.4s;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.btn i {
+  font-size: 20px;
+}
+
+.btn.whatsapp {
+  background: linear-gradient(to left, #25D366, #128C7E);
+}
+
+.btn.telegram {
+  background: linear-gradient(to left, #0088cc, #1c92d2);
+}
+
+.btn.facebook {
+  background: linear-gradient(to left, #3b5998, #8b9dc3);
+}
+
+.btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .buttons .btn {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .btn i {
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ✅ حاوية الإشعارات */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* ✅ شكل الإشعار */
+.notification {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffa2;
+  animation: fadeInOut 4s ease-in-out;
+  font-weight: bold;
+}
+
+/* ✨ أنيميشن دخول وخروج */
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateY(-20px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  90%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}

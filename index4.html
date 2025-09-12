@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مولد QR</title>
+  <link rel="icon" type=" assets/hero-icons.png " href="  assets/hero-icons.png     ">
+  <link rel="stylesheet" href="style4.css">
+
+
+  <meta name="keywords" content="تحويل رابط الى باركود, انشاء باركود, توليد QR code, تحويل لينك الى QR, QR code generator, باركود مجاني, صنع باركود اونلاين, Ziroxoft, رابط الى باركود, برنامج تحويل رابط, QR online, QR code بالعربي, باركود للروابط, تحويل المواقع الى باركود, عمل QR code للرابط, مولد باركود, Ziroxoft QR code">
+
+<meta name="description" content="حوّل أي رابط إلى باركود QR بسهولة مع نظام Ziroxoft الذكي — سريع، مجاني، ومناسب للمشاركة الفورية.">
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>مولد رمز QR للرابط</h1>
+    <input type="text" id="url-input" placeholder="أدخل الرابط هنا">
+    <div class="buttons">
+      <button onclick="generateQR()">تحويل إلى QR</button>
+      <button onclick="downloadPDF()">تحميل كـ PDF</button>
+      <button onclick="copyQR()">نسخ الكود</button>
+    </div>
+    <div id="qr-container">
+      <canvas id="qr-code"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script4.js"></script>
+</body>
+</html>

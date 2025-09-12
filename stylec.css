@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(45deg, #e0f7fa, #fce4ec, #e8f5e9, #fff3e0);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  direction: rtl;
+  text-align: center;
+  color: #333;
+}
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #ffffffee;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+h1 {
+  margin-bottom: 20px;
+  color: #444;
+}
+input[type="file"], button {
+  margin: 10px 0;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+input[type="file"] {
+  background: #f0f0f0;
+}
+button {
+  background-color: #2196f3;
+  color: white;
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: #1976d2;
+}
+.hidden {
+  display: none;
+}
+#imageURL {
+  width: 100%;
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.preview img {
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+}
+
+
+
+
+
+
+
+
+/* ✅ حاوية الإشعارات */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* ✅ شكل الإشعار */
+.notification {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffa2;
+  animation: fadeInOut 4s ease-in-out;
+  font-weight: bold;
+}
+
+/* ✨ أنيميشن دخول وخروج */
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateY(-20px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  90%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
