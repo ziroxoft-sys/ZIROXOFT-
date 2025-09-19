@@ -34,7 +34,78 @@
 
 
 
+<script>
+/* === wrapper for copyQR with ad-on-3rd-click behaviour ===
+   — الصق هذا قبل </body>
+   — يحافظ على copyQR الأصلية إذا كانت موجودة
+   — لو مش موجودة: يقدّم بديل بسيط للنسخ من canvas
+   — يمنع إضافة سكربت الإعلان أكثر من مرة في نفس الجلسة
+*/
 
+(function(){
+  const AD_SRC = "//pl27644444.revenuecpmgate.com/e4/ad/81/e4ad815623605929e3a305ed2ae0434c.js";
+  let copyCount = 0;
+  let adLoaded = false; // لمنع إدراج نفس سكربت الإعلان أكثر من مرة
+
+  // احفظ الدالة الأصلية لو كانت موجودة
+  const original = (typeof window.copyQR === "function") ? window.copyQR : null;
+
+  // بديل بسيط لو copyQR مش موجودة — يقوم بنسخ الصورة من canvas
+  function fallbackCopyQR() {
+    const canvas = document.getElementById("qr-code");
+    if (!canvas || !canvas.toDataURL) {
+      alert("لم يتم توليد QR بعد.");
+      return;
+    }
+    // محاولة النسخ عبر clipboard API (يدعم المتصفحات الحديثة)
+    canvas.toBlob((blob) => {
+      const item = new ClipboardItem({ "image/png": blob });
+      navigator.clipboard.write([item]).then(() => {
+        alert("تم نسخ رمز QR بنجاح (بديل)!");
+      }).catch(err => {
+        alert("فشل نسخ الـQR: " + err + "\nحاول استخدام المتصفح الأحدث أو السماح بالوصول للحافظة.");
+      });
+    });
+  }
+
+  // دالة اظهار الإعلان (تتحقق أولاً لو مش محمّل)
+  function showAd() {
+    if (adLoaded) return;
+    adLoaded = true;
+    const s = document.createElement("script");
+    s.src = AD_SRC;
+    s.async = true;
+    document.body.appendChild(s);
+  }
+
+  // الدالة الجديدة التي سترتبط بزرك (أو ستحل مكان copyQR)
+  function wrapperCopyQR() {
+    copyCount++;
+    if (copyCount >= 3) {
+      copyCount = 0; // عدّاد يرجع
+      showAd();
+      // لو أردت بعد الإعلان أن يتم النسخ كذلك، فكّر في استدعاء original() هنا بعد تأخير أو بعد حدث انتهاء الإعلان.
+      return;
+    }
+
+    // استدعاء الدالة الأصلية إذا كانت موجودة، وإلا استدعاء البديل
+    if (original) {
+      try {
+        original(); // نفّذ النسخ الأصلي كما كان
+      } catch (err) {
+        // لو صار خطأ غريب، استخدم البديل
+        console.error("original copyQR threw:", err);
+        fallbackCopyQR();
+      }
+    } else {
+      fallbackCopyQR();
+    }
+  }
+
+  // ثبت wrapper كـ copyQR في النافذة (حتى لو الزر مستدعي copyQR() سيعمل)
+  window.copyQR = wrapperCopyQR;
+})();
+</script>
 
 
 
@@ -50,6 +121,7 @@
 </body>
 
 </html>
+
 
 
 
