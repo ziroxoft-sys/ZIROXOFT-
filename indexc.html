@@ -33,5 +33,40 @@
   </div>
 
   <script src="scriptc.js"></script>
+
+
+
+
+<script>
+  document.getElementById("copyBtn").addEventListener("click", function (e) {
+    e.preventDefault(); // 🚫 منع النسخ المباشر
+
+    // 📢 عرض إعلان Adsterra
+    var s = document.createElement('script');
+    s.src = "//pl27644444.revenuecpmgate.com/e4/ad/81/e4ad815623605929e3a305ed2ae0434c.js";
+    document.body.appendChild(s);
+
+    // ⏳ بعد 3 ثواني يتم النسخ تلقائي
+    setTimeout(() => {
+      const copyText = document.getElementById("imageURL");
+      copyText.select();
+      document.execCommand("copy");
+      alert("✅ تم نسخ الرابط بعد عرض الإعلان!");
+    }, 3000);
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>
