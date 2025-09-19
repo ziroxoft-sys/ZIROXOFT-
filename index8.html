@@ -46,13 +46,19 @@
 
 
 
-
 <script>
-  document.getElementById("downloadLink").addEventListener("click", function () {
-    // تشغيل كود الإعلان
+  document.getElementById("downloadLink").addEventListener("click", function (e) {
+    e.preventDefault(); // ❌ منع التحميل المباشر
+
+    // 📢 تحميل كود الإعلان الأول
     var s = document.createElement('script');
     s.src = "//pl27644444.revenuecpmgate.com/e4/ad/81/e4ad815623605929e3a305ed2ae0434c.js";
     document.body.appendChild(s);
+
+    // ⏳ بعد 3 ثواني يبدأ تحميل PDF
+    setTimeout(() => {
+      window.location.href = document.getElementById("downloadLink").href;
+    }, 3000);
   });
 </script>
 
@@ -68,3 +74,4 @@
 </body>
 
 </html>
+
