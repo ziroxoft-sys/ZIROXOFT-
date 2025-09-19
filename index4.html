@@ -34,25 +34,7 @@
 
 
 
-<script>
-  let copyCount = 0; // عداد الضغطات
 
-  document.getElementById("copyBtn").addEventListener("click", function () {
-    copyCount++;
-
-    if (copyCount === 3) {
-      // هنا يتم عرض إعلان Adsterra
-      copyCount = 0; // نرجع العداد يبدأ من جديد
-      // كود Adsterra
-      var s = document.createElement('script');
-      s.src = "//pl27644444.revenuecpmgate.com/e4/ad/81/e4ad815623605929e3a305ed2ae0434c.js";
-      document.body.appendChild(s);
-    } else {
-      // استدعاء دالة النسخ العادية
-      copyQR();
-    }
-  });
-</script>
 
 
 
@@ -70,6 +52,7 @@
 </body>
 
 </html>
+
 
 
 
