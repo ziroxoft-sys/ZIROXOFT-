@@ -37,7 +37,33 @@
 
 
    
+<script>
+// ⚡️ كود تسريع الصفحة
+document.addEventListener("DOMContentLoaded", () => {
+  // تأجيل تحميل الصور غير المرئية
+  const imgs = document.querySelectorAll("img");
+  imgs.forEach(img => {
+    if ("loading" in HTMLImageElement.prototype) {
+      img.loading = "lazy";
+    }
+  });
 
+  // تنظيف الكاش كل فترة لتسريع التحديثات
+  if ('caches' in window) {
+    caches.keys().then(keys => {
+      for (let key of keys) {
+        if (key.includes("temp")) caches.delete(key);
+      }
+    });
+  }
+
+  // تحسين الأداء بإلغاء أي مؤقتات بطيئة بعد التحميل
+  setTimeout(() => {
+    performance.clearMarks?.();
+    performance.clearMeasures?.();
+  }, 5000);
+});
+</script>
  
   
  
@@ -52,6 +78,7 @@
 </body>
 
 </html>
+
 
 
 
