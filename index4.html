@@ -37,106 +37,12 @@
 
 
    
-   <!-- ===== بداية كود فرض مشاهدة إعلان قبل فتح المحتوى ===== -->
-<script>
-(function(){
-  // 🔹 هنا رابط سكربت CPAGrip الحقيقي بتاعك
-  const CPAGRIP_SCRIPT_SRC = "https://passwordomain.com/script_include.php?id=1852915";
 
-  const SESSION_KEY = 'site_ad_unlocked_v1';
-  const contentEl = document.querySelector('.container');
-  if(!contentEl) return;
+ 
+  
+ 
 
-  // ✅ لو المستخدم فتح الموقع قبل كده في نفس الجلسة، متعرضلوش الإعلان تاني
-  if(sessionStorage.getItem(SESSION_KEY) === 'true') {
-    contentEl.style.display = 'block';
-    return;
-  }
-
-  // اخفي محتوى الموقع مؤقتًا
-  contentEl.style.display = 'none';
-
-  // إنشاء واجهة عرض الإعلان (Overlay)
-  const overlay = document.createElement('div');
-  overlay.id = 'adOverlay';
-  Object.assign(overlay.style, {
-    position: 'fixed', inset: '0', background: 'rgba(0,0,0,0.75)', zIndex: 99999,
-    display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px'
-  });
-
-  const box = document.createElement('div');
-  Object.assign(box.style, {
-    width: '100%', maxWidth: '900px', background:'#fff', borderRadius:'10px',
-    padding:'12px', textAlign:'center', boxShadow:'0 0 10px rgba(0,0,0,0.3)'
-  });
-
-  box.innerHTML = `
-    <div style="font-family:Tahoma,Arial; margin-bottom:8px;">
-      <h3 style="margin:6px 0; font-size:18px;">📢 الرجاء إكمال الإعلان لفتح الموقع</h3>
-      <p style="color:#444; margin:0 0 10px;">سيتم فتح الموقع تلقائيًا بعد الانتهاء من الإعلان.</p>
-    </div>
-    <div id="adPlaceholder" style="min-height:250px;"></div>
-    <div style="margin-top:12px;">
-      <button id="adRetryBtn" style="display:none;padding:8px 16px;border-radius:8px;border:0;background:#1e90ff;color:#fff;cursor:pointer">🔄 إعادة المحاولة</button>
-    </div>
-  `;
-
-  overlay.appendChild(box);
-  document.body.appendChild(overlay);
-
-  const placeholder = document.getElementById('adPlaceholder');
-  const retryBtn = document.getElementById('adRetryBtn');
-
-  // تحميل سكربت CPAGrip داخل الإعلان
-  function loadAdScript() {
-    placeholder.innerHTML = '';
-    retryBtn.style.display = 'none';
-
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = CPAGRIP_SCRIPT_SRC;
-    s.async = true;
-    s.onerror = function(){
-      placeholder.innerHTML = '<p style="color:#b00">⚠️ فشل تحميل الإعلان. تأكد من تعطيل AdBlock.</p>';
-      retryBtn.style.display = 'inline-block';
-    };
-    s.onload = function(){
-      waitForUnlockSignal();
-    };
-    placeholder.appendChild(s);
-  }
-
-  // انتظار فتح القفل (الزائر أنهى العرض)
-  function waitForUnlockSignal() {
-    let checks = 0;
-    const iv = setInterval(function(){
-      checks++;
-      const iframe = placeholder.querySelector('iframe');
-      if(!document.getElementById('adPlaceholder') || iframe) {
-        clearInterval(iv);
-        setTimeout(handleUnlocked, 1200);
-      }
-      if(checks > 30) {
-        clearInterval(iv);
-        placeholder.innerHTML = '<p style="color:#b00">⚠️ لم يتم فتح الإعلان. اضغط "إعادة المحاولة".</p>';
-        retryBtn.style.display = 'inline-block';
-      }
-    }, 800);
-  }
-
-  // لما المستخدم يفتح الإعلان بالكامل
-  function handleUnlocked() {
-    sessionStorage.setItem(SESSION_KEY, 'true');
-    overlay.remove();
-    contentEl.style.display = 'block';
-  }
-
-  retryBtn.addEventListener('click', loadAdScript);
-  loadAdScript(); // تشغيل الإعلان أول ما الصفحة تفتح
-})();
-</script>
-<!-- ===== نهاية كود فرض مشاهدة إعلان قبل فتح المحتوى ===== -->
-
+ 
 
 
 
@@ -146,6 +52,7 @@
 </body>
 
 </html>
+
 
 
 
